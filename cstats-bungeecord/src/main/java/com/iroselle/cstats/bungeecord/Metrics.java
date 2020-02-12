@@ -46,7 +46,7 @@ public class Metrics {
     }
 
     // The version of this cStats class
-    public static final int B_STATS_VERSION = 1;
+    public static final int C_STATS_VERSION = 1;
 
     // The url to which the data is sent
     private static final String URL = "https://cstats.iroselle.com/submitData/bungeecord";
@@ -374,7 +374,7 @@ public class Metrics {
         connection.addRequestProperty("Content-Encoding", "gzip"); // We gzip our request
         connection.addRequestProperty("Content-Length", String.valueOf(compressedData.length));
         connection.setRequestProperty("Content-Type", "application/json"); // We send our data in JSON format
-        connection.setRequestProperty("User-Agent", "MC-Server/" + B_STATS_VERSION);
+        connection.setRequestProperty("User-Agent", "MC-Server/" + C_STATS_VERSION);
 
         // Send data
         connection.setDoOutput(true);

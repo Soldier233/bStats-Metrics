@@ -43,7 +43,7 @@ public class MetricsLite {
     }
 
     // The version of this cStats class
-    public static final int B_STATS_VERSION = 1;
+    public static final int C_STATS_VERSION = 1;
 
     // The url to which the data is sent
     private static final String URL = "https://cstats.iroselle.com/submitData/bukkit";
@@ -120,7 +120,7 @@ public class MetricsLite {
             // Search for all other cStats Metrics classes to see if we are the first one
             for (Class<?> service : Bukkit.getServicesManager().getKnownServices()) {
                 try {
-                    service.getField("B_STATS_VERSION"); // Our identifier :)
+                    service.getField("C_STATS_VERSION"); // Our identifier :)
                     found = true; // We aren't the first
                     break;
                 } catch (NoSuchFieldException ignored) { }
@@ -242,7 +242,7 @@ public class MetricsLite {
         // Search for all other cStats Metrics classes to get their plugin data
         for (Class<?> service : Bukkit.getServicesManager().getKnownServices()) {
             try {
-                service.getField("B_STATS_VERSION"); // Our identifier :)
+                service.getField("C_STATS_VERSION"); // Our identifier :)
 
                 for (RegisteredServiceProvider<?> provider : Bukkit.getServicesManager().getRegistrations(service)) {
                     try {
@@ -316,7 +316,7 @@ public class MetricsLite {
         connection.addRequestProperty("Content-Encoding", "gzip"); // We gzip our request
         connection.addRequestProperty("Content-Length", String.valueOf(compressedData.length));
         connection.setRequestProperty("Content-Type", "application/json"); // We send our data in JSON format
-        connection.setRequestProperty("User-Agent", "MC-Server/" + B_STATS_VERSION);
+        connection.setRequestProperty("User-Agent", "MC-Server/" + C_STATS_VERSION);
 
         // Send data
         connection.setDoOutput(true);
